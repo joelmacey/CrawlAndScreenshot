@@ -1,0 +1,16 @@
+{
+  "name": "repos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crawl": "^0.3.1",
+    "prompt": "^1.0.0",
+    "webshot": "^0.18.0"
+  }
+}
