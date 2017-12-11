@@ -9,8 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "crawl": "^0.3.1",
-    "prompt": "^1.0.0",
     "webshot": "^0.18.0"
   }
 }

@@ -1,11 +1,11 @@
-// var website; 
-var prompt = require('prompt');
-var crawl = require('crawl');
 var webshot = require('webshot');
-prompt.start();
-prompt.get(['site'], function (err, result) {
-  var site=result.site;
-  console.log('site: ' + site);
-    webshot(site, site +'.png', function(err) {
-  });
+var options = { shotSize: { height: 'all' } };
+var fs      = require('fs');
+var url = 'thrifty.co.nz';
+
+console.log('Creating screenshot for URL: ' + url);
+var renderStream = webshot(url, options);
+var file = fs.createWriteStream(url+'.png', {encoding: 'binary'});
+renderStream.on('data', function(data) {
+  file.write(data.toString('binary'), 'binary');
 });
