@@ -1,11 +1,22 @@
-var webshot = require('webshot');
-var options = { shotSize: { height: 'all' } };
-var fs      = require('fs');
-var url = 'thrifty.co.nz';
+const fs = require('fs');
+var crawl = require('./lib/crawl');
+var screenshot = require('./lib/screenshot');
 
-console.log('Creating screenshot for URL: ' + url);
-var renderStream = webshot(url, options);
-var file = fs.createWriteStream(url+'.png', {encoding: 'binary'});
-renderStream.on('data', function(data) {
-  file.write(data.toString('binary'), 'binary');
-});
+module.exports = function(params) {
+  //Sets up variables from params
+  var dir = params.dir || __dirname + '/';
+  var depth = params.depth || '3' ;
+  var url = params.url || '' ;
+  var width = params.width || 1080;
+  var height = params.height || 1920;
+
+  //Makes folder if it doesnt exist
+  if (!fs.existsSync(dir)){
+      fs.mkdirSync(dir);
+  }
+
+  var urls = crawl.StartCrawler(url, depth)
+  screenshot.screenshotter(url, urls, dir, width, height);
+  console.log('URLS:'+urls);
+
+};

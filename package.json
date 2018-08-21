@@ -1,14 +1,16 @@
 {
-  "name": "repos",
+  "name": "CrawlAndScreenshot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Package for crawling through a webpage and creating a screenshot of the full page.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "joelmacey",
   "license": "ISC",
   "dependencies": {
-    "webshot": "^0.18.0"
+    "fs": "0.0.1-security",
+    "js-crawler": "^0.3.21",
+    "puppeteer": "^1.5.0"
   }
 }
