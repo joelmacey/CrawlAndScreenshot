@@ -15,8 +15,9 @@ module.exports = function(params) {
       fs.mkdirSync(dir);
   }
 
-  var urls = crawl.StartCrawler(url, depth)
-  screenshot.screenshotter(url, urls, dir, width, height);
-  console.log('URLS:'+urls);
-
+  var urls = crawl.StartCrawler(url, depth, function(urls){
+    screenshot.screenshotter(url, urls, dir, width, height, function(){
+      console.log("COMPLETE")
+    });
+  });
 };
